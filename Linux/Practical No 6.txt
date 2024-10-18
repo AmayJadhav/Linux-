@@ -1,0 +1,23 @@
+Practical No 6
+Aim:
+Configure NFS server to share directories on your NFS, Configure NFS Client. (Ubuntu and Windows Client OS)
+Solution:
+Step 1: Install nfs server “apt install nfs-kernel-server”
+Step 2: Change in /etc/idmapd.conf . Also give 777 permission to this file
+Add “Pipefs-Directory = /run/rpc_pipefs” and “Domain = srv.world”
+Step 3: Change in /etc/exports and add “/home/faraz
+192.168.152.129(rw,sync,no_root_squash,subtree_check)”. Format to this is “/path/to/nfs/share
+server_ip(rw,sync,no_root_squash,subtree_check)” Address is the same as marked in the image below. Type ifconfig to see address
+Step 4: Restart and check status of server
+systemctl restart nfs-server
+systemctl status nfs-server
+Step 5: Install nfs client, “apt install nfs-common”
+Step 6: Create the mount point directory and add directory name in /etc/fstab file. My mount
+point directory name is “/mnt/nfs12” and location for mount point directory is “/home/faraz”
+.Add “192.168.152.129:/home/faraz /mnt/nfs12 nfs rw,soft,intr,noatime,x-gvfs-show” in
+/etc/fstab file
+Step 7:
+● mount -a
+● mount -t nfs 192.168.152.129:/home/faraz /mnt/nfs12
+● df -hT
+Step 8: You can see the folder of nfs in your PC

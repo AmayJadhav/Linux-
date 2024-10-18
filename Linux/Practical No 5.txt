@@ -1,0 +1,8 @@
+Practical No 5
+Aim:
+Install DNS server BIND, Configure DNS server which resolves domain name or IP
+address, Install BIND 9, Configure BIND, Limit ranges You allow to access if needed. Solution:
+Step 1: Update and upgrade packages to the latest version . Also upgrade dist
+Step 2: Install bind9 bind9utils and bind 9-doc
+Step 3: Goto /etc/bind/named.conf.options and uncomment forwarders block. Also change address to 8.8.8.8
+Step 4: Restart bind9 and check status

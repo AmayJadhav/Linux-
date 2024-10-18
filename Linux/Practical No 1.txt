@@ -1,0 +1,21 @@
+Practical No 1
+Aim: Installing dhcp server in Ubuntu
+Solution:
+Step 1:
+Type su username to change user then type sudo su to go to root folder
+Step 2:
+Type ifconfig(interface configuration) to see the configuration of the network.
+If ifconfig is not install then install net-tools
+Step 3:
+Install dhcp server
+Step 4:
+Type “nano /etc/default/isc-dhcp-server” to edit isc-dhcp-server file
+Type enp0s3 in in isc-dhcp-server file
+Step 5:
+Type “nano /etc/dhcp/dhcpd.conf ” to edit dhcpd.conf file
+Uncomment authoritative and change subnet, netmask, range, subnet-mask, routers, broadcast- address. Change according to inet address, only first three should be taken and last value should be 0(only
+subnet, netmask, subnet-mask)
+Step 6:
+systemctl start isc-dhcp-server.service
+systemctl enable isc-dhcp-server.service
+systemctl status isc-dhcp-server.service

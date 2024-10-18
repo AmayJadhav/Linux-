@@ -1,0 +1,35 @@
+Practical No 7
+Aim:
+Install MySQL to configure database server, Install phpMyAdmin to operate MySQL
+on a web browser from Clients. Solution: done from “compile lsa 22-23” and sybal ma'am journal without get-text(also can’t
+login in phpmyadmin website)
+Solution:
+Step 1: Update all the repository and install mysql-server
+Step 2: Restart sql and check status. After status is active enable mysql
+systemctl restart mysql
+systemctl status mysql
+systemctl enable mysql
+Step 3: We will use secure_installation to configure mysql and make it more secure. Do yes in all the option for better security
+Step 4: Go inside mysql and check some commands. mysql -u root -p;
+show databases;
+create database exampleDB;
+Enable user for weblogin
+Create new user for weblogin and grant permission for localhost
+Mysql listen on port 3306 and we will allow to listen this port from anywhere in browser
+Also note the change in /etc/mysql/mysql.conf.d/mysqld.cnf
+If bind-address = 127.0.0.1 then it will only listen to localhost
+If bind-address = 0.0.0.0 then it will from every host
+If bind-address = 192.168.152.129(i.e. Your ubuntu system address) then it will only listen to
+your ip address. Note: No need to change anything , this information is only for general knowledge
+Step 5: Check status of mysql port with netstat -ntulp command. If netstat is not install then
+install it form apt-get install net-tools. You can see mysql is listening to port 3306
+Step 6: Install php and phpmyadmin
+apt install php
+apt install phpmyadmin
+Step 7: Type ifconfig and note the address and open browser and login to website
+192.168.244.132/phpmyadmin
+Step 8: Click on exampleDB and write table name and then click go
+Click on preview SQL to see command for above query
+\
+You can check student table
+Practical no:-

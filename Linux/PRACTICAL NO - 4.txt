@@ -1,0 +1,23 @@
+PRACTICAL NO :- 4
+Aim :- openssh server client side
+Source Code:- Step : 1 Ifconfig
+Step : 2 apt-get -y install openssh-server
+Step : 3
+apt-get -y install openssh-client
+Step : 4
+adduser roshni
+Step : 5
+su roshni
+Step : 6
+systemctl start ssh
+systemctl status ssh
+Step : 7
+ssh roshni@192.168.244.131
+Step : 8
+Now install “Putty” from internet
+Open it and enter the same init address to connect both ubuntu and putty with the same address.
+Step : 9
+Step : 10
+Now we can create a file on one end and access it on the other end.
+Step : 11
+Now we will create a file named “saima” in ubuntu.

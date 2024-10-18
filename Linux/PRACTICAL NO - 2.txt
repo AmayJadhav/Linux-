@@ -1,0 +1,29 @@
+PRACTICAL NO :- 2
+Aim:Initial settings: Add a User, Network Settings, Change to static IP address, Disable IPv6.if
+not needed, Configure Service, display the list of services which are running. Stop and turn OFF
+auto-start setting for a service if you don’t need it, Sudo Settings
+Code and output:
+Step1 :
+Type ifconfig -a and note the highlighted part
+Type “nano /etc/network/interfaces” and write below data
+This is use to configure static IP address for network card
+Step 3:
+Adding new user
+Step 4:
+usermod -G aditya
+Step 5:
+echo “net.ipv6.conf.all.disable_ipv6 = 1”>> /etc/sysctl.conf
+nano /etc/sysctl.conf
+Step 6:
+sysctl -p
+ip addr
+Step 7:
+systemctl -t service
+Step 8:
+systemctl stop apparmor
+systemctl -t service
+Step 9:
+systemctl start apparmor
+systemctl enable apparmor
+systemctl status apparmor
+PRACTICAL N

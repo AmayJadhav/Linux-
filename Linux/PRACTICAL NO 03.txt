@@ -1,0 +1,43 @@
+PRACTICAL NO :03
+AIM:- Configure NTP Server (NTPd), Install and Configure NTPd, Configure NTP client
+(Ubuntu and Windows) Network Time Protocol(NTP) has unique ability for companies to
+synchronize the clocks of all the systems within the company. Solution:- →Time Synchronisation
+NTP is a TCP/IP protocol for synchronizing time over a network. Basically a client requests the
+current time from a server, and uses it to set its own clock. →Install NTPd and Configure NTP server for time adjustment. NTP uses 123/UDP.Install and
+Configure NTPd.
+→Type nano /etc/ntp.conf and make changes in /etc/ntp.conf
+# line 18: comment out and
+# add servers of your timezone for time synchronization
+server ntp1.jst.mfeed.ad.jp iburst
+server ntp2.jst.mfeed.ad.jp iburst
+server ntp3.jst.mfeed.ad.jp iburst
+→same file # line 50: add the network range you allow to receive requests
+o The nomodify options prevents any changes to the configuration. o The notrap option prevents ntpdc control message protocol traps. o The nopeer option prevents a peer association being formed. o The noquery option prevents ntpq and ntpdc queries, but not time queries, from being
+answered. ➔ systemctl restart ntp
+➔ systemctl status ntp
+➔ ntpq –p
+→Configure NTP Client : Windows – Open [control panel] – [Clock and Region]--- [Date and Time ] and move to [internet time] tab, then [change
+settings] button.
+Type above address in server tab
+Successful msg will shown if time sync without error
+now restart ntp show status
+systemctl restart ntp
+ntpq -p
+REFID=the current source of synchronization for the remote host
+STRATUM=the stratum level of the remote host
+T=types available
+l local (such as a GPS clock)
+u unicast (this is the common type)
+m multicast
+b broadcast - netaddr (usually 0)
+WHEN=number of seconds passed since the remote host response
+POLL=polling interval to the remote host, defined with the "minpoll" value in ntp.conf file
+REACH=indicates how successful attempts to reach the server are. This is an 8-bit shift register
+with the most recent probe in the 2^0 position. The value 001 indicates the most recent probe
+was answered, while 357 indicates one probe was not answered. The value 377 indicates that all
+the recent probes have been answered. DELAY= (round trip time) indicates the time (in milliseconds) taken by the reply packet to
+return in response to a query sent by the server. OFFSET=indicates the time difference (in milliseconds) between the server's clock and the
+client's clock. When this number exceeds 128, and the message synchronization lost appears in
+the log file
+DISP=indicates the difference in the offset measurement between two samples. This is an error- bound estimate. The dispersion is a primary measure of the network service quality. Jitter: “This number is an absolute value in milliseconds, showing the root mean squared
+deviation of your offsets.”

@@ -1,0 +1,22 @@
+Practical no:- 8
+Aim:
+Install Samba to share folders or files between Windows and Linux
+Solution:
+Step 1: type ifconfig and note the ip address and install samba
+ifconfig
+apt-get -y install samba
+Step 2: Goto home directory and create a “share” folder. Also give 777 permission to “share ”
+the folder.
+Step 3: nano /etc/samba/smb.conf file to add few things
+On line 25 add “unix charset = UTF-8” and on line 29 change window default
+Put ip address on line 50
+And in the end add below block
+Step 4: Restart samba and check status
+systemctl restart smbd
+systemctl status smbd
+Step 5: client side (windows)
+Now on your client side that is on your window based system:
+>go to this pc >right click on it>click on map network drive>n in that write your ip address of
+the
+server and the folder name which you want to share
+Step 6: Create file in linux and see output in window
